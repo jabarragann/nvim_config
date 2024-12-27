@@ -18,7 +18,9 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 -- Leader map keybindings
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-vim.keymap.set("n", "<leader>rr", ReloadRemaps, { desc = "Reload remap.lua" }) -- Keybinding to reload remaps.lua
+--vim.keymap.set("n", "<leader>rr", ReloadRemaps, { desc = "Reload remap.lua" }) -- Keybinding to reload remaps.lua
+vim.keymap.set("n", "<leader>rr", "<cmd>source %<CR>")
+vim.keymap.set("n", "<leader>w","<cmd>echo 'testing cmd'<CR>")
 
 -- nnn.nvim
 vim.keymap.set("n", "<leader>n", ":NnnPicker <CR>") -- In root folder
