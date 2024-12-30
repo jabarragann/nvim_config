@@ -34,6 +34,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 local lspconfig = require("lspconfig")
 lspconfig.pyright.setup({})
+lspconfig.marksman.setup({})
 
 
 vim.api.nvim_create_autocmd("FileType", {
