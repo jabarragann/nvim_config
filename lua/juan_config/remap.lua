@@ -18,8 +18,18 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 -- Leader map keybindings
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
---vim.keymap.set("n", "<leader>rr", ReloadRemaps, { desc = "Reload remap.lua" }) -- Keybinding to reload remaps.lua
+
+vim.api.nvim_set_keymap('n', '<Space><Space>', ':nohlsearch<Bar>:echo<CR>', { noremap = true, silent = true })
+
+
+----------------------------------
+-- Keybinding to reload config 
+----------------------------------
+
+-- vim.keymap.set("n", "<leader>rr", ReloadRemaps, { desc = "Reload remap.lua" }) 
 vim.keymap.set("n", "<leader>rr", "<cmd>source %<CR>")
-vim.keymap.set("n", "<leader>w","<cmd>echo 'testing cmd'<CR>")
+
+-- Test to see if your file was indeed reloaded
+vim.keymap.set("n", "<leader>w","<cmd>echo 'tesring cmd!!'<CR>")
 
 

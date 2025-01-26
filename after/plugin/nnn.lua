@@ -1,5 +1,6 @@
 local builtin = require("nnn").builtin
 
+
 require("nnn").setup({
   mappings = {
     { "<C-t>", builtin.open_in_tab },       -- open file(s) in tab

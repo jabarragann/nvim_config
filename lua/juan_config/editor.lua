@@ -10,4 +10,18 @@ vim.o.softtabstop = 4
 vim.o.autoindent = true 
 vim.o.smartindent = true 
 
-vim.opt_local.number= true
+-- Line numbers
+vim.o.number = true
+vim.opt.relativenumber = true
+
+vim.o.wrap = false
+
+-- Search config
+vim.o.hlsearch = true 
+vim.o.incsearch = true
+
+-- Misc
+vim.opt.termguicolors = true
+vim.scrolloff = 8
+vim.opt.updatetime = 50
+vim.opt.colorcolumn = "80"
