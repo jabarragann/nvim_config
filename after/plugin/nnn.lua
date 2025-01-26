@@ -1,4 +1,5 @@
 local builtin = require("nnn").builtin
+
 require("nnn").setup({
   mappings = {
     { "<C-t>", builtin.open_in_tab },       -- open file(s) in tab
@@ -10,5 +11,10 @@ require("nnn").setup({
     { "<C-e>", builtin.populate_cmdline },  -- populate cmdline (:) with file(s)
   }
 })
+
+-- nnn.nvim
+vim.keymap.set("n", "<leader>n", ":NnnPicker <CR>") -- In root folder
+vim.keymap.set("n", "<leader>l", ":NnnPicker %:p:h<CR>") -- In local folder 
+vim.keymap.set("n", "<leader>t", ":NnnExplorer <CR>")
 
 

@@ -22,8 +22,4 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>rr", "<cmd>source %<CR>")
 vim.keymap.set("n", "<leader>w","<cmd>echo 'testing cmd'<CR>")
 
--- nnn.nvim
-vim.keymap.set("n", "<leader>n", ":NnnPicker <CR>") -- In root folder
-vim.keymap.set("n", "<leader>l", ":NnnPicker %:p:h<CR>") -- In local folder 
-vim.keymap.set("n", "<leader>t", ":NnnExplorer <CR>")
 
