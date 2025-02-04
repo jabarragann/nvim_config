@@ -32,8 +32,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+--LSP config with navbuddy
 local lspconfig = require("lspconfig")
-lspconfig.pyright.setup({})
+local navbuddy = require("nvim-navbuddy")
+
+lspconfig.pyright.setup({    
+    on_attach = function(client, bufnr)
+        navbuddy.attach(client, bufnr)
+    end})
 lspconfig.marksman.setup({})
 
 
