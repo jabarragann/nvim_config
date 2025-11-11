@@ -2,9 +2,13 @@
 -- This will avoid an annoying layout shift in the screen
 vim.opt.signcolumn = 'yes'
 
+-- Pick the right lspconfig API (Neovim 0.11+ uses vim.lsp.config)
+local lspconfig = require('lspconfig')
+
 -- Add cmp_nvim_lsp capabilities settings to lspconfig
 -- This should be executed before you configure any language server
-local lspconfig_defaults = require('lspconfig').util.default_config
+local lspconfig_defaults = lspconfig.util.default_config
+
 lspconfig_defaults.capabilities = vim.tbl_deep_extend(
   'force',
   lspconfig_defaults.capabilities,
@@ -33,14 +37,34 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 --LSP config with navbuddy
-local lspconfig = require("lspconfig")
 local navbuddy = require("nvim-navbuddy")
 
-lspconfig.pyright.setup({    
+-- Detect which API style to use
+local v = vim.version()  -- {major=0, minor=11, patch=5, prerelease=false}
+local use_new_api = (v.major > 0) or (v.major == 0 and v.minor >= 11)
+
+if use_new_api then
+  -- ✅ Neovim 0.11+ style
+  vim.lsp.config('pyright', {
     on_attach = function(client, bufnr)
-        navbuddy.attach(client, bufnr)
-    end})
-lspconfig.marksman.setup({})
+      navbuddy.attach(client, bufnr)
+    end,
+  })
+  vim.lsp.config('marksman', {})
+
+else
+  -- ✅ Older Neovim (≤ 0.10) style
+  local lspconfig = require("lspconfig")
+  local navbuddy = require("nvim-navbuddy")
+
+  lspconfig.pyright.setup({
+    on_attach = function(client, bufnr)
+      navbuddy.attach(client, bufnr)
+    end,
+  })
+
+  lspconfig.marksman.setup({})
+end
 
 
 vim.api.nvim_create_autocmd("FileType", {
