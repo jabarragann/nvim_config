@@ -45,12 +45,16 @@ local use_new_api = (v.major > 0) or (v.major == 0 and v.minor >= 11)
 
 if use_new_api then
   -- ✅ Neovim 0.11+ style
+  print("Neovim new LSP api (0.11.0)")
   vim.lsp.config('pyright', {
     on_attach = function(client, bufnr)
       navbuddy.attach(client, bufnr)
     end,
   })
   vim.lsp.config('marksman', {})
+
+  vim.lsp.enable("pyright")
+  vim.lsp.enable("marksman")
 
 else
   -- ✅ Older Neovim (≤ 0.10) style
