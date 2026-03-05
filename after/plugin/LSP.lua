@@ -2,18 +2,6 @@
 -- This will avoid an annoying layout shift in the screen
 vim.opt.signcolumn = 'yes'
 
--- Pick the right lspconfig API (Neovim 0.11+ uses vim.lsp.config)
-local lspconfig = require('lspconfig')
-
--- Add cmp_nvim_lsp capabilities settings to lspconfig
--- This should be executed before you configure any language server
-local lspconfig_defaults = lspconfig.util.default_config
-
-lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-  'force',
-  lspconfig_defaults.capabilities,
-  require('cmp_nvim_lsp').default_capabilities()
-)
 
 -- This is where you enable features that only work
 -- if there is a language server active in the file
@@ -57,8 +45,21 @@ if use_new_api then
   vim.lsp.enable("marksman")
 
 else
-  -- ✅ Older Neovim (≤ 0.10) style
-  local lspconfig = require("lspconfig")
+  -- ✅ Older Neovim (≤ 0.10) style (Not tested)
+    
+  -- Pick the right lspconfig API (Neovim 0.11+ uses vim.lsp.config)
+  local lspconfig = require('lspconfig')
+
+  -- Add cmp_nvim_lsp capabilities settings to lspconfig
+  -- This should be executed before you configure any language server
+  local lspconfig_defaults = lspconfig.util.default_config
+
+  lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+    'force',
+    lspconfig_defaults.capabilities,
+    require('cmp_nvim_lsp').default_capabilities()
+  )
+
   local navbuddy = require("nvim-navbuddy")
 
   lspconfig.pyright.setup({
