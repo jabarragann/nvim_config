@@ -32,6 +32,7 @@ local v = vim.version()  -- {major=0, minor=11, patch=5, prerelease=false}
 local use_new_api = (v.major > 0) or (v.major == 0 and v.minor >= 11)
 
 if use_new_api then
+
   -- ✅ Neovim 0.11+ style
   print("Neovim new LSP api (0.11.0)")
   vim.lsp.config('pyright', {
@@ -39,7 +40,25 @@ if use_new_api then
       navbuddy.attach(client, bufnr)
     end,
   })
+
   vim.lsp.config('marksman', {})
+
+  vim.lsp.config('lua_ls', {
+    cmd = { 'lua-language-server' },
+    filetypes = { 'lua' },
+    settings = {
+      Lua = {
+        runtime = {
+          version = 'LuaJIT',
+        },
+
+        diagnostics = {
+          globals = { 'vim' }, -- recognize Neovim API
+        }
+      },
+    },
+  })
+  vim.lsp.enable('lua_ls')
 
   vim.lsp.enable("pyright")
   vim.lsp.enable("marksman")
