@@ -10,35 +10,38 @@
 
 
 local function setup_word_processor()
-  local opt = vim.opt_local
+    local opt = vim.opt_local
 
-  -- Text layout
-  opt.wrap = true           -- Wrap text
-  opt.linebreak = true      -- Wrap on word boundaries
-  opt.breakindent = true    -- Preserve indentation on wrapped lines
-  opt.textwidth = 80        -- Soft writing target
-  opt.colorcolumn = "80"    -- Visual guide
+    -- Text layout
+    opt.wrap = true           -- Wrap text
+    opt.linebreak = true      -- Wrap on word boundaries
+    opt.breakindent = true    -- Preserve indentation on wrapped lines
+    opt.textwidth = 80        -- Soft writing target
+    opt.colorcolumn = "80"    -- Visual guide
 
-  -- Spell checking
-  opt.spell = true
-  opt.spelllang = "en_us"
+    -- Spell checking
+    opt.spell = true
+    opt.spelllang = "en_us"
 
-  -- Better paragraph navigation
-  vim.keymap.set("n", "<Down>", "gj", { buffer = true })
-  vim.keymap.set("n", "<Up>", "gk", { buffer = true })
-  vim.keymap.set("n", "j", "gj", { buffer = true })
-  vim.keymap.set("n", "k", "gk", { buffer = true })
+    -- Better paragraph navigation
+    vim.keymap.set("n", "<Down>", "gj", { buffer = true })
+    vim.keymap.set("n", "<Up>", "gk", { buffer = true })
+    vim.keymap.set("n", "j", "gj", { buffer = true })
+    vim.keymap.set("n", "k", "gk", { buffer = true })
 
-  -- Optional writing conveniences
-  -- opt.conceallevel = 2      -- Better markdown rendering
-  opt.formatoptions:append("t") -- Enable auto line wrapping when typing
-  opt.formatoptions:remove("c") -- Don't auto-wrap comments
+    -- Optional writing conveniences
+    -- opt.conceallevel = 2      -- Better markdown rendering
+    opt.formatoptions:append("t") -- Enable auto line wrapping when typing
+    opt.formatoptions:remove("c") -- Don't auto-wrap comments
 
-  -- Disable Copilot for writing buffers
-  vim.cmd("Copilot disable")
+    -- Disable Copilot for writing buffers
+    vim.cmd("Copilot disable")
+
+    -- Disable relative number
+    opt.relativenumber = false
 end
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "markdown", "text" },
-  callback = setup_word_processor,
+    pattern = { "markdown", "text" },
+    callback = setup_word_processor,
 })
