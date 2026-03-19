@@ -4,7 +4,7 @@
   "fzf-lua": { "branch": "main", "commit": "bf59dcee2a8d894724b060401d2abf3d71d4bd47" },
   "gitsigns.nvim": { "branch": "main", "commit": "7c4faa3540d0781a28588cafbd4dd187a28ac6e3" },
   "kitty-scrollback.nvim": { "branch": "main", "commit": "aa05d5ade0b744d8e49f4c992f34dadc7079bce8" },
-  "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
+  "lazy.nvim": { "branch": "main", "commit": "85c7ff3711b730b4030d03144f6db6375044ae82" },
   "lsp_signature.nvim": { "branch": "master", "commit": "af7e4074d85d785cf6614352ba9ad3b28a1f8a56" },
   "nnn.nvim": { "branch": "master", "commit": "efe690293eee87558f034a83ed96157e52639cdb" },
   "nui.nvim": { "branch": "main", "commit": "de740991c12411b663994b2860f1a4fd0937c130" },
