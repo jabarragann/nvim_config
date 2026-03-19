@@ -30,7 +30,7 @@ local function setup_word_processor()
   vim.keymap.set("n", "k", "gk", { buffer = true })
 
   -- Optional writing conveniences
-  opt.conceallevel = 2      -- Better markdown rendering
+  -- opt.conceallevel = 2      -- Better markdown rendering
   opt.formatoptions:append("t") -- Enable auto line wrapping when typing
   opt.formatoptions:remove("c") -- Don't auto-wrap comments
 
