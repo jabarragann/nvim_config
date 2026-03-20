@@ -1,5 +1,5 @@
 
 return {
-    'nvim-treesitter/nvim-treesitter', tag = 'v0.9.3',
+    'nvim-treesitter/nvim-treesitter', tag = 'v0.10.0',
     build = ":TSUpdate"
 }
