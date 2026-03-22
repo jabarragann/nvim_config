@@ -25,3 +25,13 @@ vim.opt.termguicolors = true
 vim.scrolloff = 8
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
+
+-- Status line configuration -- Requires vim-fugitive
+vim.o.statusline = table.concat({
+  "%f",                      -- file path
+  " ",
+  "%{FugitiveStatusline()}", -- git branch
+  " ",
+  "%=",                      -- right align
+  "%l:%c",                   -- line:col
+})
