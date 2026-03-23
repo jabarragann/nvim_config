@@ -28,7 +28,8 @@ vim.opt.colorcolumn = "80"
 
 -- Status line configuration -- Requires vim-fugitive
 vim.o.statusline = table.concat({
-  "%f",                      -- file path
+  "%f",        -- file path
+  "%m",        -- [+] if modified
   " ",
   "%{FugitiveStatusline()}", -- git branch
   " ",
