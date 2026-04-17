@@ -7,9 +7,16 @@
 -- Useful commands:
 -- gqap - Reflow the current paragraph according to 'textwidth' and 
 -- 'formatoptions' in text documents. (NOT working with comments)
+--
+--
+-- Run command on demand
+-- lua require("juan_config.word_processor").setup_word_processor()
 
 
-local function setup_word_processor()
+
+local M = {}
+
+function M.setup_word_processor()
     local opt = vim.opt_local
 
     -- Text layout
@@ -43,5 +50,8 @@ end
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "markdown", "text" },
-    callback = setup_word_processor,
+    callback = M.setup_word_processor,
 })
+
+
+return M
