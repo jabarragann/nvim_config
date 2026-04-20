@@ -23,7 +23,7 @@ function M.setup_word_processor()
     opt.wrap = true           -- Wrap text
     opt.linebreak = true      -- Wrap on word boundaries
     opt.breakindent = true    -- Preserve indentation on wrapped lines
-    opt.textwidth = 80        -- Soft writing target
+    -- opt.textwidth = 80        -- Soft writing target
     opt.colorcolumn = "80"    -- Visual guide
 
     -- Spell checking
@@ -38,8 +38,8 @@ function M.setup_word_processor()
 
     -- Optional writing conveniences
     -- opt.conceallevel = 2      -- Better markdown rendering
-    opt.formatoptions:append("t") -- Enable auto line wrapping when typing
-    opt.formatoptions:remove("c") -- Don't auto-wrap comments
+    -- opt.formatoptions:append("t") -- Enable auto line wrapping when typing
+    -- opt.formatoptions:remove("c") -- Don't auto-wrap comments
 
     -- Disable Copilot for writing buffers
     vim.cmd("Copilot disable")
