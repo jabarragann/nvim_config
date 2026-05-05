@@ -42,7 +42,11 @@ function M.setup_word_processor()
     -- opt.formatoptions:remove("c") -- Don't auto-wrap comments
 
     -- Disable Copilot for writing buffers
-    vim.cmd("Copilot disable")
+    -- Global disable for all buffers 
+    -- vim.cmd("Copilot disable")
+
+    -- Buffer-local disable
+    vim.b.copilot_enabled = false
 
     -- Disable relative number
     opt.relativenumber = false
