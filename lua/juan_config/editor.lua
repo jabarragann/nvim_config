@@ -1,3 +1,6 @@
+-- Clipboard
+vim.opt.clipboard = "unnamedplus"
+
 -- Splits configurations
 vim.opt.splitbelow = true
 vim.opt.splitright = true
