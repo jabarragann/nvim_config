@@ -1,4 +1,10 @@
 -- Clipboard
+
+-- clipboard syncing over ssh
+if vim.env.SSH_CONNECTION and vim.env.KITTY_WINDOW_ID then
+  vim.g.clipboard = "osc52"
+end
+
 vim.opt.clipboard = "unnamedplus"
 
 -- Splits configurations
