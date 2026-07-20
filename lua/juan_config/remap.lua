@@ -15,6 +15,14 @@ vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 
+-- Move lines up/down
+vim.keymap.set("n", "<A-j>", "<cmd>m .+1<CR>==")
+vim.keymap.set("n", "<A-k>", "<cmd>m .-2<CR>==")
+vim.keymap.set("i", "<A-j>", "<Esc><cmd>m .+1<CR>==gi")
+vim.keymap.set("i", "<A-k>", "<Esc><cmd>m .-2<CR>==gi")
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
+
 -- Leader map keybindings
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
