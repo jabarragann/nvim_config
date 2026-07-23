@@ -16,6 +16,6 @@ require("nnn").setup({
 -- nnn.nvim
 vim.keymap.set("n", "<leader>n", ":NnnPicker <CR>") -- In root folder
 vim.keymap.set("n", "<leader>l", ":NnnPicker %:p:h<CR>") -- In local folder 
-vim.keymap.set("n", "<leader>t", ":NnnExplorer <CR>")
+-- vim.keymap.set("n", "<leader>t", ":NnnExplorer <CR>")
 
 
