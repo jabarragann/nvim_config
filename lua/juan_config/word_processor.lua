@@ -10,7 +10,8 @@
 --
 --
 -- Run command on demand
--- lua require("juan_config.word_processor").setup_word_processor()
+-- :WordProcessor
+-- or: lua require("juan_config.word_processor").setup_word_processor()
 
 
 
@@ -56,6 +57,8 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = { "markdown", "text" },
     callback = M.setup_word_processor,
 })
+
+vim.api.nvim_create_user_command("WordProcessor", M.setup_word_processor, {})
 
 
 return M
