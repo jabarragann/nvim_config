@@ -1,7 +1,7 @@
 -- Clipboard
 
 -- clipboard syncing over ssh
-if vim.env.SSH_CONNECTION and vim.env.KITTY_WINDOW_ID then
+if vim.env.SSH_CONNECTION and (vim.env.KITTY_WINDOW_ID or vim.env.TMUX) then
   vim.g.clipboard = "osc52"
 end
 
