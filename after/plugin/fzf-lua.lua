@@ -3,7 +3,8 @@ local builtin = require("fzf-lua")
 local function project_files()
   vim.fn.system("git rev-parse --is-inside-work-tree 2>/dev/null")
   if vim.v.shell_error == 0 then
-    builtin.git_files()
+    -- Tracked + untracked files, excluding anything matched by .gitignore
+    builtin.git_files({ cmd = "git ls-files --cached --others --exclude-standard" })
   else
     builtin.files()
   end
